@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchElements } from '../../store/elements/fetchReducer';
+import Element from '../elements/Element';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -15,12 +16,18 @@ const Home = () => {
 
   const mapElements = elements.map(
     (element) => (
-      <h2 key={element.name}>{element.name}</h2>
+      <Element
+        key={element.atomicNumber}
+        atomicMass={element.atomicMass}
+        atomicNumber={element.atomicNumber}
+        name={element.name}
+        symbol={element.symbol}
+      />
     ),
   );
 
   return (
-    <div>
+    <div className="grid-two-ng">
       {mapElements}
     </div>
   );
