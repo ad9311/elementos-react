@@ -1,14 +1,25 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Navbar from './Navbar';
 
 const Header = () => {
-  // const inspection = useSelector((state) => state.inspect.inspection);
-  console.log('Hey');
+  const localtion = useLocation();
+  const { element } = useSelector((state) => state.inspect.selection);
+
+  const isInspecting = () => {
+    if (localtion.pathname.includes('details')) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <header>
       <Navbar />
-      <h1>Elementos</h1>
+      {isInspecting()
+        ? <h1>{element.name}</h1>
+        : <h1>Elementos</h1> }
     </header>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { inspectElement } from '../../store/elements/inspectReducer';
-import formatAtomicMass from '../../utils/numeric';
+import { formatAtomicMass, getSelection } from '../../utils/utils';
 
 const Element = (props) => {
   const {
@@ -14,6 +14,7 @@ const Element = (props) => {
     // altColor,
   } = props;
   const dispatch = useDispatch();
+  const elements = useSelector((state) => state.periodicTable.elementsList);
   const element = useSelector(
     (state) => state.periodicTable.elementsList.filter(
       (element) => element.atomicNumber === atomicNumber,
@@ -21,7 +22,8 @@ const Element = (props) => {
   )[0];
 
   const handleInspection = () => {
-    dispatch(inspectElement(element));
+    const selection = getSelection(element, elements);
+    dispatch(inspectElement(selection));
   };
 
   return (

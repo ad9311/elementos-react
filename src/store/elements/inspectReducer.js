@@ -1,8 +1,12 @@
 const INSPECT_ELEMENT = 'periodic_table/elements/INSPECT_ELEMENT';
 
 const initialState = {
-  inspection: {
-    selectedElement: {},
+  selection: {
+    element: {},
+    group: {
+      list: [],
+      name: undefined,
+    },
   },
 };
 
@@ -17,8 +21,12 @@ const inspectReducer = (state = initialState, action) => {
   switch (action.type) {
     case INSPECT_ELEMENT:
       return {
-        inspection: {
-          selectedElement: { ...action.payload },
+        selection: {
+          element: { ...action.payload.element },
+          group: {
+            list: [...action.payload.group.list],
+            name: action.payload.group.name,
+          },
         },
       };
     default:
