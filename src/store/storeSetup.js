@@ -9,7 +9,7 @@ const combineMiddleware = [logger, thunk];
 const reducer = combineReducers(
   {
     periodicTable: fetchReducer,
-    inspection: inspectReducer,
+    inspect: inspectReducer,
   },
 );
 

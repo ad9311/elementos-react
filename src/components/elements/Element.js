@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { inspectElement } from '../../store/elements/inspectReducer';
 import formatAtomicMass from '../../utils/numeric';
 
 const Element = (props) => {
@@ -12,9 +13,19 @@ const Element = (props) => {
     symbol,
     // altColor,
   } = props;
+  const dispatch = useDispatch();
+  const element = useSelector(
+    (state) => state.periodicTable.elementsList.filter(
+      (element) => element.atomicNumber === atomicNumber,
+    ),
+  )[0];
+
+  const handleInspection = () => {
+    dispatch(inspectElement(element));
+  };
 
   return (
-    <NavLink exact to={`/details/${name}`}>
+    <NavLink exact to={`/details/${name}`} onClick={handleInspection}>
       <section>
         <p>{atomicNumber}</p>
         <h2>{symbol}</h2>
