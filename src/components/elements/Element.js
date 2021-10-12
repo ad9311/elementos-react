@@ -20,6 +20,7 @@ const Element = (props) => {
       (element) => element.atomicNumber === atomicNumber,
     ),
   )[0];
+  const path = `/details/${name.toLowerCase()}`;
 
   const handleInspection = () => {
     const selection = getSelection(element, elements);
@@ -27,7 +28,7 @@ const Element = (props) => {
   };
 
   return (
-    <NavLink exact to={`/details/${name}`} onClick={handleInspection}>
+    <NavLink exact to={path} onClick={handleInspection}>
       <section>
         <p>{atomicNumber}</p>
         <h2>{symbol}</h2>

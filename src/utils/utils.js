@@ -1,7 +1,10 @@
 export const formatAtomicMass = (rawAtomicMass) => {
-  const atomicMass = rawAtomicMass.replace(/[(*)]/g, '');
-  const roundAtomicMass = parseFloat(atomicMass).toFixed(3);
-  return String(roundAtomicMass);
+  if (rawAtomicMass !== undefined) {
+    const atomicMass = rawAtomicMass.replace(/[(*)]/g, '');
+    const roundAtomicMass = parseFloat(atomicMass).toFixed(3);
+    return String(roundAtomicMass);
+  }
+  return '';
 };
 
 export const getSelection = (element, elements) => {
@@ -12,4 +15,22 @@ export const getSelection = (element, elements) => {
   const group = { list, name };
 
   return { element, group };
+};
+
+export const nameToLowerCase = (name) => {
+  if (name === undefined) {
+    return undefined;
+  }
+  return name.toLowerCase();
+};
+
+export const searchElement = (name, elements) => {
+  const foundElement = elements.filter(
+    (element) => nameToLowerCase(element.name) === name,
+  )[0];
+
+  if (foundElement === undefined) {
+    return {};
+  }
+  return foundElement;
 };

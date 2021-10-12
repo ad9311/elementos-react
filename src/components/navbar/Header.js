@@ -1,25 +1,58 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchElements } from '../../store/elements/fetchReducer';
+import { inspectElement } from '../../store/elements/inspectReducer';
+import { getSelection, nameToLowerCase, searchElement } from '../../utils/utils';
+import Element from '../elements/Element';
 import Navbar from './Navbar';
 
 const Header = () => {
-  const localtion = useLocation();
+  const dispatch = useDispatch();
+  const path = useLocation().pathname;
+  const elements = useSelector((state) => state.periodicTable.elementsList);
+  const status = useSelector((state) => state.periodicTable.status);
   const { element } = useSelector((state) => state.inspect.selection);
 
+  useEffect(() => {
+    if (path.includes('/details/', '')) {
+      const name = nameToLowerCase(element.name);
+      const currentElement = path.replace('/details/', '');
+      const match = name !== currentElement;
+
+      if (status === 'default') {
+        dispatch(fetchElements());
+      }
+
+      if (match) {
+        const foundElement = searchElement(currentElement, elements);
+        const selection = getSelection(foundElement, elements);
+        dispatch(inspectElement(selection));
+      }
+    }
+  }, [status, path]);
+
   const isInspecting = () => {
-    if (localtion.pathname.includes('details')) {
+    if (path.includes('/details/')) {
       return true;
     }
     return false;
   };
 
   return (
-    <header>
+    <header className="pos-sticky top-0">
       <Navbar />
       {isInspecting()
-        ? <h1>{element.name}</h1>
-        : <h1>Elementos</h1> }
+        ? (
+          <Element
+            atomicMass={element.atomicMass}
+            atomicNumber={element.atomicNumber}
+            name={element.name}
+            symbol={element.symbol}
+          />
+        )
+        : <h1>Periodic Table</h1>}
+      <div><p>Sorted By Atomic Mass</p></div>
     </header>
   );
 };
