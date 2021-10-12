@@ -22,7 +22,6 @@ const Details = () => {
 
   return (
     <div>
-      {group.name}
       {mapGrouping}
     </div>
   );

@@ -5,7 +5,7 @@ const FETCH_ELEMENTS = 'periodic_table/FETCH_ELEMENTS/fulfilled';
 
 const initialState = {
   status: 'default',
-  elementsList: [],
+  elements: [],
 };
 
 export const fetchElements = createAsyncThunk('periodic_table/FETCH_ELEMENTS', async () => {
@@ -18,7 +18,7 @@ const fetchReducer = (state = initialState, action) => {
     case FETCH_ELEMENTS:
       return {
         status: 'ready',
-        elementsList: [...state.elementsList, ...action.payload],
+        elements: [...state.elements, ...action.payload],
       };
     default:
       return state;

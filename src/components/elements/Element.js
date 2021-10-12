@@ -14,9 +14,9 @@ const Element = (props) => {
     // altColor,
   } = props;
   const dispatch = useDispatch();
-  const elements = useSelector((state) => state.periodicTable.elementsList);
+  const { elements } = useSelector((state) => state.periodicTable);
   const element = useSelector(
-    (state) => state.periodicTable.elementsList.filter(
+    (state) => state.periodicTable.elements.filter(
       (element) => element.atomicNumber === atomicNumber,
     ),
   )[0];

@@ -5,8 +5,7 @@ import Element from '../elements/Element';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const elements = useSelector((state) => state.periodicTable.elementsList);
-  const status = useSelector((state) => state.periodicTable.status);
+  const { elements, status } = useSelector((state) => state.periodicTable);
 
   useEffect(() => {
     if (status === 'default') {

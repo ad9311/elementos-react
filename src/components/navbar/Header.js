@@ -10,9 +10,8 @@ import Navbar from './Navbar';
 const Header = () => {
   const dispatch = useDispatch();
   const path = useLocation().pathname;
-  const elements = useSelector((state) => state.periodicTable.elementsList);
-  const status = useSelector((state) => state.periodicTable.status);
-  const { element } = useSelector((state) => state.inspect.selection);
+  const { elements, status } = useSelector((state) => state.periodicTable);
+  const { element, group } = useSelector((state) => state.inspect.selection);
 
   useEffect(() => {
     if (path.includes('/details/', '')) {
@@ -52,7 +51,9 @@ const Header = () => {
           />
         )
         : <h1>Periodic Table</h1>}
-      <div><p>Sorted By Atomic Mass</p></div>
+      {isInspecting()
+        ? <div><p>{`Other ${group.name} elements`}</p></div>
+        : <div><p>Elements By Atomic Mass</p></div>}
     </header>
   );
 };
