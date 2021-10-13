@@ -50,3 +50,10 @@ export const onInspection = (path) => {
   }
   return false;
 };
+
+export const toggle = (flag) => {
+  if (flag) {
+    return false;
+  }
+  return true;
+};
