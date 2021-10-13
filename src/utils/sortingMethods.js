@@ -1,6 +1,6 @@
 import { formatAtomicMass } from './utils';
 
-const atomicMass = (elements, order = { a: -1, b: 1 }) => {
+const atomicMass = (elements, order) => {
   elements.sort((a, b) => {
     const aAtomicMass = formatAtomicMass(a.atomicMass);
     const bAtomicMass = formatAtomicMass(b.atomicMass);
@@ -16,7 +16,7 @@ const atomicMass = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-const boilingPoint = (elements, order = { a: -1, b: 1 }) => {
+const boilingPoint = (elements, order) => {
   elements.sort((a, b) => {
     const aBoilingPoint = Number(a.boilingPoint);
     const bBoilingPoint = Number(b.boilingPoint);
@@ -32,7 +32,7 @@ const boilingPoint = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-const density = (elements, order = { a: -1, b: 1 }) => {
+const density = (elements, order) => {
   elements.sort((a, b) => {
     const aDensity = Number(a.density);
     const bDensity = Number(b.density);
@@ -48,7 +48,7 @@ const density = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-const meltingPoint = (elements, order = { a: -1, b: 1 }) => {
+const meltingPoint = (elements, order) => {
   elements.sort((a, b) => {
     const aMeltingPoint = Number(a.meltingPoint);
     const bMeltingPoint = Number(b.meltingPoint);
@@ -64,7 +64,7 @@ const meltingPoint = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-const name = (elements, order = { a: -1, b: 1 }) => {
+const name = (elements, order) => {
   elements.sort((a, b) => {
     if (a.name < b.name) {
       return order.a;
@@ -77,7 +77,7 @@ const name = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-const yearDiscovered = (elements, order = { a: -1, b: 1 }) => {
+const yearDiscovered = (elements, order) => {
   elements.sort((a, b) => {
     const aYear = Number(a.yearDiscovered);
     const bYear = Number(b.yearDiscovered);
@@ -98,7 +98,7 @@ const yearDiscovered = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-const sortByMethod = (elements, method, order) => {
+const sortByMethod = (elements, method, order = { a: -1, b: 1 }) => {
   switch (method) {
     case 'atomicMass':
       return atomicMass(elements, order);
