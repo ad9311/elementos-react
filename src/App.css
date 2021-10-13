@@ -1,1 +1,25 @@
 /* App.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap');
+
+:root {
+  --light-blue: #3C83B9;
+  --medium-blue: #2F6690;
+  --dark-blue: #19364D;
+  --font-color: #FBFFF1;
+}
+
+body {
+  margin: 0;
+  background-color: var(--light-blue);
+  color: var(--font-color);
+  font-family: 'Titillium Web', sans-serif;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}

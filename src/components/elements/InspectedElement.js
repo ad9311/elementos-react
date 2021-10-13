@@ -22,8 +22,8 @@ const InspectedElement = (props) => {
       <p>{boilingPoint === '' ? 'Boiling Point: Undefined' : `Boiling Point: ${boilingPoint} K`}</p>
       <p>{density === '' ? 'Density: Undefined' : `Density: ${density} g/cm3`}</p>
       <p>{meltingPoint === '' ? 'Melting Point: Undefined' : `Melting Point: ${meltingPoint} K`}</p>
-      <p>{`Year: ${yearDiscovered}`}</p>
-      <p>{`${formatAtomicMass(atomicMass)} u`}</p>
+      <p>{`Year of Discovery: ${yearDiscovered}`}</p>
+      <p>{`Atomic Mass: ${formatAtomicMass(atomicMass)} u`}</p>
     </section>
   );
 };
