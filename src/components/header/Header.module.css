@@ -6,3 +6,13 @@
 .icon {
   height: 18px;
 }
+
+.center {
+  background-color: var(--light-blue);
+}
+
+.groupinfo {
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: var(--medium-blue);
+}

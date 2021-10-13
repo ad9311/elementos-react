@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <nav className={style.navbar}>
-      <div className="d-flex justify-between align-items-center">
+      <div className="con-1 d-flex justify-between align-items-center">
         <NavLink exact to="/" className={style.icon}><img src={Back} alt="back" /></NavLink>
         <h4>Elementos</h4>
         <button

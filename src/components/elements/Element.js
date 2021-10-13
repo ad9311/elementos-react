@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 import { inspectElement } from '../../store/elements/inspectReducer';
 import { formatAtomicMass } from '../../utils/utils';
 import groupByCategory from '../../utils/groupByCategory';
+import Inspect from '../../img/inspect.svg';
+import style from './Element.module.css';
 
 const Element = (props) => {
   const {
@@ -12,8 +14,7 @@ const Element = (props) => {
     atomicNumber,
     name,
     symbol,
-    yearDiscovered,
-    // altColor,
+    altColor,
   } = props;
   const dispatch = useDispatch();
   const { elements } = useSelector((state) => state.periodicTable);
@@ -32,12 +33,18 @@ const Element = (props) => {
 
   return (
     <NavLink exact to={path} onClick={handleInspection}>
-      <section>
-        <p>{atomicNumber}</p>
-        <h2>{symbol}</h2>
-        <h3>{name}</h3>
-        <p>{formatAtomicMass(atomicMass)}</p>
-        <p>{yearDiscovered}</p>
+      <section className={altColor ? style.medium : style.light}>
+        <div className="d-flex justify-between">
+          <p>{atomicNumber}</p>
+          <img src={Inspect} alt="inspect" />
+        </div>
+        <div>
+          <h2 className={style.symbol}>{symbol}</h2>
+        </div>
+        <div className="text-right lh-2">
+          <h3>{name}</h3>
+          <p>{formatAtomicMass(atomicMass)}</p>
+        </div>
       </section>
     </NavLink>
   );
@@ -48,8 +55,7 @@ Element.propTypes = {
   atomicNumber: PropTypes.string,
   name: PropTypes.string,
   symbol: PropTypes.string,
-  yearDiscovered: PropTypes.string,
-  // altColor: PropTypes.bool,
+  altColor: PropTypes.bool,
 };
 
 Element.defaultProps = {
@@ -57,8 +63,7 @@ Element.defaultProps = {
   atomicNumber: '0',
   name: 'noElement',
   symbol: '0',
-  yearDiscovered: '0',
-  // altColor: false,
+  altColor: false,
 };
 
 export default Element;

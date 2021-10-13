@@ -1,0 +1,14 @@
+<svg viewBox="-120 -120 240 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="fill-rule:evenodd;clip-rule:evenodd;">
+	<g id="Atom">
+		<title>Atom Icon, by Adam Stanislav</title>
+
+		<!-- <circle r="120" fill="white"/> -->
+
+		<g fill="#2F6690">
+			<path id="a" d="M0-106.074c15.629 0 28.317 47.53 28.317 106.074 0 58.544-12.688 106.074-28.317 106.074-15.629 0-28.317-47.53-28.317-106.074 0-58.544 12.688-106.074 28.317-106.074zm0 26.135c11.778 0 21.341 35.819 21.341 79.939 0 44.12-9.563 79.939-21.341 79.939-11.778 0-21.341-35.819-21.341-79.939 0-44.12 9.563-79.939 21.341-79.939z"/>
+			<use xlink:href="#a" transform="rotate(60)"/>
+			<use xlink:href="#a" transform="rotate(-60)"/>
+			<circle r="8.125"/>
+		</g>
+	</g>
+</svg>

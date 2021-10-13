@@ -8,6 +8,8 @@ import groupByCategory from '../../utils/groupByCategory';
 import InspectedElement from '../elements/InspectedElement';
 import Navbar from './Navbar';
 import GroupInfo from './GroupInfo';
+import Atom from '../../img/atom.svg';
+import style from './Header.module.css';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -60,15 +62,21 @@ const Header = () => {
     }
 
     return (
-      <div>
-        <h1>Periodic Table</h1>
+      <div className="con-1">
+        <div className="grid-two">
+          <div><img src={Atom} alt="atom" className="img-fluid" /></div>
+          <div className="d-flex flex-column align-center">
+            <h1 className="fs-2">Periodic Table</h1>
+            <p className="fw-4"><small>118 Elements</small></p>
+          </div>
+        </div>
         <GroupInfo />
       </div>
     );
   };
 
   return (
-    <header className="pos-sticky top-0">
+    <header className={`pos-sticky top-0 ${style.center}`}>
       <Navbar />
       {elementExists()}
     </header>

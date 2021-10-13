@@ -5,6 +5,9 @@ import { sortDesc } from '../../store/elements/arrangeReducer';
 import { toggle } from '../../utils/utils';
 import sortByMethod from '../../utils/sortingMethods';
 import { rearrangeElements } from '../../store/elements/loadReducer';
+import Asce from '../../img/asce.svg';
+import Desc from '../../img/desc.svg';
+import style from './Header.module.css';
 
 const GroupInfo = (props) => {
   const { groupName } = props;
@@ -31,15 +34,25 @@ const GroupInfo = (props) => {
     </div>
   );
 
+  const sortButton = (svg) => (
+    <button
+      type="button"
+      className={`bg-transparent border-none ${style.icon}`}
+      onClick={handleSort}
+    >
+      <img src={svg} alt="sort" />
+    </button>
+  );
+
   const homeGroup = () => (
-    <div>
+    <div className="plr-1 d-flex justify-between align-items-center">
       <p>{`Sorted by ${methodName}`}</p>
-      <button type="button" onClick={handleSort}>{orderDescOn ? 'Asce' : 'Desc'}</button>
+      {orderDescOn ? sortButton(Asce) : sortButton(Desc)}
     </div>
   );
 
   return (
-    <div>
+    <div className={style.groupinfo}>
       {groupName !== undefined ? inspectionGroup(groupName) : homeGroup()}
     </div>
   );
