@@ -34,7 +34,7 @@ const Navbar = () => {
           <img src={Gear} alt="settings" />
         </button>
       </div>
-      {menuOn ? menu('d-block') : menu('d-none')}
+      {menuOn ? menu(style.menuOn) : menu(style.menuOff)}
     </nav>
   );
 };

@@ -26,7 +26,7 @@ const Menu = () => {
   );
 
   return (
-    <ul>
+    <ul className="d-flex flex-wrap con-1">
       {onInspection(path) ? mapGroupingMethods : mapSortingMethods}
     </ul>
   );

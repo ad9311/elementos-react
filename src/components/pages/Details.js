@@ -20,7 +20,7 @@ const Details = () => {
   );
 
   return (
-    <div className="mb-3">
+    <div className="mb-3 con-1">
       <ul>
         {mapGrouping}
       </ul>

@@ -45,7 +45,7 @@ const Header = () => {
 
     if (onInspection(path) && element.name !== undefined) {
       return (
-        <div>
+        <div className="con-1">
           <InspectedElement
             atomicMass={element.atomicMass}
             atomicNumber={element.atomicNumber}

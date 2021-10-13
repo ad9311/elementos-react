@@ -31,8 +31,8 @@ const InspectedElement = (props) => {
         <h2 className={style.inspectSymbol}>{symbol}</h2>
         <h3>{name}</h3>
       </div>
-      <div className="">
-        <ul>
+      <div>
+        <ul className={style.info}>
           <li><p>{AT}</p></li>
           <li><p>{AM}</p></li>
           <li><p>{boilingPoint === '' ? UBP : BP}</p></li>

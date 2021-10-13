@@ -26,6 +26,11 @@
   color: var(--dark-blue);
 }
 
+.info {
+  margin: auto;
+  max-width: 11.3rem;
+}
+
 .groupElement:nth-child(even) {
   background-color: var(--medium-blue);
 }

@@ -7,6 +7,7 @@ import { updateGroup } from '../../store/elements/inspectReducer';
 import { getSortingName } from '../../utils/arrangeArrays';
 import sortByMethod from '../../utils/sortingMethods';
 import groupByCategory from '../../utils/groupByCategory';
+import style from './Header.module.css';
 
 const MenuItem = (props) => {
   const { sortBy, groupBy, name } = props;
@@ -35,8 +36,14 @@ const MenuItem = (props) => {
   };
 
   return (
-    <li>
-      <button type="button" onClick={handleArrange}>{name}</button>
+    <li className="m-1">
+      <button
+        type="button"
+        className={style.arange}
+        onClick={handleArrange}
+      >
+        {name}
+      </button>
     </li>
   );
 };
