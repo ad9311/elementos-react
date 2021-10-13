@@ -41,7 +41,7 @@ const Home = () => {
   );
 
   return (
-    <div>
+    <div className="con-1 mb-3">
       <ul className="grid-two-ng">
         {mapElements}
       </ul>

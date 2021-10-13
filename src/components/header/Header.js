@@ -65,7 +65,7 @@ const Header = () => {
       <div className="con-1">
         <div className="grid-two">
           <div><img src={Atom} alt="atom" className="img-fluid" /></div>
-          <div className="d-flex flex-column align-center">
+          <div className="d-flex flex-column align-center lh-1">
             <h1 className="fs-2">Periodic Table</h1>
             <p className="fw-4"><small>118 Elements</small></p>
           </div>

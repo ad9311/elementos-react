@@ -29,7 +29,7 @@ const GroupInfo = (props) => {
   };
 
   const inspectionGroup = (groupName) => (
-    <div>
+    <div className="plr-1">
       <p>{`Other ${groupName} elements.`}</p>
     </div>
   );

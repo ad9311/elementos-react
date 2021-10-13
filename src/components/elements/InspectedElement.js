@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { formatAtomicMass } from '../../utils/utils';
+import style from './Element.module.css';
 
 const InspectedElement = (props) => {
   const {
@@ -14,16 +15,32 @@ const InspectedElement = (props) => {
     symbol,
   } = props;
 
+  const AT = `Atomic Number: ${atomicNumber}`;
+  const AM = `Atomic Mass: ${formatAtomicMass(atomicMass)} u`;
+  const BP = `Boiling Point: ${boilingPoint} K`;
+  const UBP = 'Boiling Point: Undefined';
+  const DE = `Density: ${density} g/cm3`;
+  const UDE = 'Density: Undefined';
+  const MP = `Melting Point: ${meltingPoint} K`;
+  const UMP = 'Melting Point: Undefined';
+  const YD = `Discovered in: ${yearDiscovered}`;
+
   return (
-    <section>
-      <p>{`Atomic Number: ${atomicNumber}`}</p>
-      <h2>{symbol}</h2>
-      <h3>{name}</h3>
-      <p>{boilingPoint === '' ? 'Boiling Point: Undefined' : `Boiling Point: ${boilingPoint} K`}</p>
-      <p>{density === '' ? 'Density: Undefined' : `Density: ${density} g/cm3`}</p>
-      <p>{meltingPoint === '' ? 'Melting Point: Undefined' : `Melting Point: ${meltingPoint} K`}</p>
-      <p>{`Year of Discovery: ${yearDiscovered}`}</p>
-      <p>{`Atomic Mass: ${formatAtomicMass(atomicMass)} u`}</p>
+    <section className={style.inspect}>
+      <div className="text-center lh-1">
+        <h2 className={style.inspectSymbol}>{symbol}</h2>
+        <h3>{name}</h3>
+      </div>
+      <div className="">
+        <ul>
+          <li><p>{AT}</p></li>
+          <li><p>{AM}</p></li>
+          <li><p>{boilingPoint === '' ? UBP : BP}</p></li>
+          <li><p>{density === '' ? UDE : DE}</p></li>
+          <li><p>{meltingPoint === '' ? UMP : MP}</p></li>
+          <li><p>{YD}</p></li>
+        </ul>
+      </div>
     </section>
   );
 };
