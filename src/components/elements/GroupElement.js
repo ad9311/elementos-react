@@ -6,7 +6,7 @@ import { inspectElement } from '../../store/elements/inspectReducer';
 import { formatAtomicMass } from '../../utils/utils';
 import groupByCategory from '../../utils/groupByCategory';
 
-const Element = (props) => {
+const GroupElement = (props) => {
   const {
     atomicMass,
     atomicNumber,
@@ -32,16 +32,15 @@ const Element = (props) => {
   return (
     <NavLink exact to={path} onClick={handleInspection}>
       <section>
-        <p>{atomicNumber}</p>
-        <h2>{symbol}</h2>
-        <h3>{name}</h3>
-        <p>{formatAtomicMass(atomicMass)}</p>
+        <span>{`(${symbol}) `}</span>
+        <span>{name}</span>
+        <span>{formatAtomicMass(atomicMass)}</span>
       </section>
     </NavLink>
   );
 };
 
-Element.propTypes = {
+GroupElement.propTypes = {
   atomicMass: PropTypes.string,
   atomicNumber: PropTypes.string,
   name: PropTypes.string,
@@ -49,7 +48,7 @@ Element.propTypes = {
   // altColor: PropTypes.bool,
 };
 
-Element.defaultProps = {
+GroupElement.defaultProps = {
   atomicMass: '0',
   atomicNumber: '0',
   name: 'noElement',
@@ -57,4 +56,4 @@ Element.defaultProps = {
   // altColor: false,
 };
 
-export default Element;
+export default GroupElement;

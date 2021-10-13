@@ -5,7 +5,7 @@ import { fetchElements } from '../../store/elements/loadReducer';
 import { inspectElement } from '../../store/elements/inspectReducer';
 import { nameToLowerCase, searchElement, onInspection } from '../../utils/utils';
 import groupByCategory from '../../utils/groupByCategory';
-import Element from '../elements/Element';
+import InspectedElement from '../elements/InspectedElement';
 import Navbar from './Navbar';
 import GroupInfo from './GroupInfo';
 
@@ -44,12 +44,15 @@ const Header = () => {
     if (onInspection(path) && element.name !== undefined) {
       return (
         <div>
-          <Element
+          <InspectedElement
             atomicMass={element.atomicMass}
             atomicNumber={element.atomicNumber}
+            boilingPoint={element.boilingPoint}
+            density={element.density}
+            meltingPoint={element.meltingPoint}
             name={element.name}
+            yearDiscovered={element.yearDiscovered}
             symbol={element.symbol}
-            noLink
           />
           <GroupInfo groupName={group.name} />
         </div>
