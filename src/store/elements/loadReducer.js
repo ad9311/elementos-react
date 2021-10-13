@@ -14,6 +14,13 @@ export const fetchElements = createAsyncThunk('periodic_table/FETCH_ELEMENTS', a
   return elements;
 });
 
+export const rearrangeElements = (payload) => (
+  {
+    type: REARRANGE_ELEMENTS,
+    payload,
+  }
+);
+
 const loadReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_ELEMENTS:
