@@ -1,17 +1,8 @@
 import React from 'react';
+import sortingMethods from '../../utils/sortingMethodsArray';
 import MenuItem from './MenuItem';
 
 const Menu = () => {
-  const sortingMethods = [
-    {
-      name: 'Atomic Mass',
-      sortBy: 'atomicMass',
-    },
-    {
-      name: 'Melting Point',
-      sortBy: 'meltingPoint',
-    },
-  ];
   const mapSortingMethods = sortingMethods.map(
     (method) => (
       <MenuItem

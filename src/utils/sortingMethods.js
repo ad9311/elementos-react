@@ -16,6 +16,38 @@ export const atomicMass = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
+export const boilingPoint = (elements, order = { a: -1, b: 1 }) => {
+  elements.sort((a, b) => {
+    const aBoilingPoint = Number(a.boilingPoint);
+    const bBoilingPoint = Number(b.boilingPoint);
+
+    if (aBoilingPoint < bBoilingPoint) {
+      return order.a;
+    }
+    if (aBoilingPoint > bBoilingPoint) {
+      return order.b;
+    }
+    return 0;
+  });
+  return elements;
+};
+
+export const density = (elements, order = { a: -1, b: 1 }) => {
+  elements.sort((a, b) => {
+    const aDensity = Number(a.density);
+    const bDensity = Number(b.density);
+
+    if (aDensity < bDensity) {
+      return order.a;
+    }
+    if (aDensity > bDensity) {
+      return order.b;
+    }
+    return 0;
+  });
+  return elements;
+};
+
 export const meltingPoint = (elements, order = { a: -1, b: 1 }) => {
   elements.sort((a, b) => {
     const aMeltingPoint = Number(a.meltingPoint);
@@ -32,13 +64,55 @@ export const meltingPoint = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
+export const name = (elements, order = { a: -1, b: 1 }) => {
+  elements.sort((a, b) => {
+    if (a.name < b.name) {
+      return order.a;
+    }
+    if (a.name > b.name) {
+      return order.b;
+    }
+    return 0;
+  });
+  return elements;
+};
+
+export const yearDiscovered = (elements, order = { a: -1, b: 1 }) => {
+  elements.sort((a, b) => {
+    const aYear = Number(a.yearDiscovered);
+    const bYear = Number(b.yearDiscovered);
+    if (Number.isNaN(aYear)) {
+      return order.a;
+    }
+    if (Number.isNaN(bYear)) {
+      return order.b;
+    }
+    if (aYear < bYear) {
+      return order.a;
+    }
+    if (aYear > bYear) {
+      return order.b;
+    }
+    return 0;
+  });
+  return elements;
+};
+
 export const sortByMethod = (elements, method, order) => {
   switch (method) {
     case 'atomicMass':
       return atomicMass(elements, order);
+    case 'boilingPoint':
+      return boilingPoint(elements, order);
+    case 'density':
+      return density(elements, order);
     case 'meltingPoint':
       return meltingPoint(elements, order);
+    case 'name':
+      return name(elements, order);
+    case 'yearDiscovered':
+      return yearDiscovered(elements, order);
     default:
-      return {};
+      return elements;
   }
 };
