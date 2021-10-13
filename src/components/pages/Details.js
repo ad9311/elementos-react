@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { formatAtomicMass } from '../../utils/utils';
 
 const Details = () => {
-  const { group } = useSelector((state) => state.inspect.selection);
+  const { group } = useSelector((state) => state.inspect);
   const path = (name) => `/details/${name.toLowerCase()}`;
 
   const mapGrouping = group.list.map(

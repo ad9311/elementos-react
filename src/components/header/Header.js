@@ -3,11 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchElements } from '../../store/elements/loadReducer';
 import { inspectElement } from '../../store/elements/inspectReducer';
-import {
-  nameToLowerCase,
-  searchElement,
-  onInspection,
-} from '../../utils/utils';
+import { nameToLowerCase, searchElement, onInspection } from '../../utils/utils';
 import groupByCategory from '../../utils/groupByCategory';
 import Element from '../elements/Element';
 import Navbar from './Navbar';
@@ -17,7 +13,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const path = useLocation().pathname;
   const { elements, status } = useSelector((state) => state.periodicTable);
-  const { element, group } = useSelector((state) => state.inspect.selection);
+  const { element, group } = useSelector((state) => state.inspect);
   const { groupBy } = useSelector((state) => state.arrange);
 
   useEffect(() => {

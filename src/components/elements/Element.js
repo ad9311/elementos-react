@@ -26,7 +26,6 @@ const Element = (props) => {
   const path = `/details/${name.toLowerCase()}`;
 
   const handleInspection = () => {
-    console.log(groupBy);
     const selection = groupByCategory(groupBy, element, elements);
     dispatch(inspectElement(selection));
   };
