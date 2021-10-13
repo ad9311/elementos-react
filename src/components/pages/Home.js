@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchElements } from '../../store/elements/fetchReducer';
+import { fetchElements } from '../../store/elements/loadReducer';
 import Element from '../elements/Element';
 
 const Home = () => {

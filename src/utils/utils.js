@@ -43,3 +43,10 @@ export const searchElement = (name, elements) => {
   }
   return foundElement;
 };
+
+export const onInspection = (path) => {
+  if (path.includes('/details/')) {
+    return true;
+  }
+  return false;
+};

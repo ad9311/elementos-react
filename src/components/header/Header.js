@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchElements } from '../../store/elements/fetchReducer';
+import { fetchElements } from '../../store/elements/loadReducer';
 import { inspectElement } from '../../store/elements/inspectReducer';
-import { getSelection, nameToLowerCase, searchElement } from '../../utils/utils';
+import {
+  getSelection,
+  nameToLowerCase,
+  searchElement,
+  onInspection,
+} from '../../utils/utils';
 import Element from '../elements/Element';
 import Navbar from './Navbar';
 import GroupInfo from './GroupInfo';
@@ -32,21 +37,14 @@ const Header = () => {
     }
   }, [status, path]);
 
-  const isInspecting = () => {
-    if (path.includes('/details/')) {
-      return true;
-    }
-    return false;
-  };
-
   const elementExists = () => {
-    if (isInspecting() && element.name === undefined) {
+    if (onInspection(path) && element.name === undefined) {
       return (
         <h1>Element does not exist!</h1>
       );
     }
 
-    if (isInspecting() && element.name !== undefined) {
+    if (onInspection(path) && element.name !== undefined) {
       return (
         <div>
           <Element

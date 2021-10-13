@@ -1,15 +1,17 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import fetchReducer from './elements/fetchReducer';
+import loadReducer from './elements/loadReducer';
 import inspectReducer from './elements/inspectReducer';
+import arrangeReducer from './elements/arrangeReducer';
 
 const combineMiddleware = [logger, thunk];
 
 const reducer = combineReducers(
   {
-    periodicTable: fetchReducer,
+    periodicTable: loadReducer,
     inspect: inspectReducer,
+    arrange: arrangeReducer,
   },
 );
 

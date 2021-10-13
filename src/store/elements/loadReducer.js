@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import fetchAPI from '../../api/fetchAPI';
 
 const FETCH_ELEMENTS = 'periodic_table/FETCH_ELEMENTS/fulfilled';
+const REARRANGE_ELEMENTS = 'periodic_table/REARRANGE_ELEMENTS/fulfilled';
 
 const initialState = {
   status: 'default',
@@ -13,16 +14,21 @@ export const fetchElements = createAsyncThunk('periodic_table/FETCH_ELEMENTS', a
   return elements;
 });
 
-const fetchReducer = (state = initialState, action) => {
+const loadReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_ELEMENTS:
       return {
         status: 'ready',
-        elements: [...state.elements, ...action.payload],
+        elements: [...action.payload],
+      };
+    case REARRANGE_ELEMENTS:
+      return {
+        status: 'rearranged',
+        elements: [...action.payload],
       };
     default:
       return state;
   }
 };
 
-export default fetchReducer;
+export default loadReducer;

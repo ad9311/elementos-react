@@ -5,6 +5,7 @@ const Navbar = () => (
   <nav>
     <NavLink exact to="/">Back</NavLink>
     <h4>Elementos</h4>
+    <p>Sort</p>
   </nav>
 );
 
