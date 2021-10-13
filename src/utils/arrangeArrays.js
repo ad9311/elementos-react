@@ -25,6 +25,11 @@ export const sortingMethods = [
   },
 ];
 
+export const getSortingName = (sortBy) => {
+  const displayMethod = sortingMethods.filter((method) => method.sortBy === sortBy)[0];
+  return displayMethod.name;
+};
+
 export const groupingMethods = [
   {
     name: 'Standard State',

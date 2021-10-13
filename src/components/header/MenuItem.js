@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { sortElements, groupElements } from '../../store/elements/arrangeReducer';
 import { rearrangeElements } from '../../store/elements/loadReducer';
 import { updateGroup } from '../../store/elements/inspectReducer';
+import { getSortingName } from '../../utils/arrangeArrays';
 import sortByMethod from '../../utils/sortingMethods';
 import groupByCategory from '../../utils/groupByCategory';
 
@@ -14,7 +15,8 @@ const MenuItem = (props) => {
   const { element } = useSelector((state) => state.inspect);
 
   const handleSortig = () => {
-    dispatch(sortElements(sortBy));
+    const methodName = getSortingName(sortBy);
+    dispatch(sortElements({ sortBy, methodName }));
     const sortedElements = sortByMethod(elements, sortBy);
     dispatch(rearrangeElements(sortedElements));
   };
