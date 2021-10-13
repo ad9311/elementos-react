@@ -39,13 +39,13 @@ const arrangeReducer = (state = initialState, action) => {
       };
     case SORT_ELEMENTS:
       return {
-        menuOn: state.menuOn,
+        menuOn: false,
         sortBy: action.payload,
         grouBy: state.grouBy,
       };
     case GROUP_ELEMENTS:
       return {
-        menuOn: state.menuOn,
+        menuOn: false,
         sortBy: state.sortBy,
         grouBy: action.payload,
       };

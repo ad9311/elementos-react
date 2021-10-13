@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { showMenu } from '../../store/elements/arrangeReducer';
 import { toggle } from '../../utils/utils';
+import Menu from './Menu';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,7 @@ const Navbar = () => {
 
   const menu = (displayClass) => (
     <div className={displayClass}>
-      <ul>
-        <li>A</li>
-        <li>B</li>
-        <li>C</li>
-      </ul>
+      <Menu />
     </div>
   );
 
