@@ -21,6 +21,7 @@ const Home = () => {
         atomicNumber={element.atomicNumber}
         name={element.name}
         symbol={element.symbol}
+        yearDiscovered={element.yearDiscovered}
       />
     ),
   );

@@ -81,10 +81,10 @@ const yearDiscovered = (elements, order) => {
   elements.sort((a, b) => {
     const aYear = Number(a.yearDiscovered);
     const bYear = Number(b.yearDiscovered);
-    if (Number.isNaN(aYear)) {
+    if (Number.isNaN(aYear) && a.name < b.name) {
       return order.a;
     }
-    if (Number.isNaN(bYear)) {
+    if (Number.isNaN(bYear) && a.name > b.name) {
       return order.b;
     }
     if (aYear < bYear) {

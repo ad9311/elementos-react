@@ -12,6 +12,7 @@ const Element = (props) => {
     atomicNumber,
     name,
     symbol,
+    yearDiscovered,
     // altColor,
   } = props;
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const Element = (props) => {
         <h2>{symbol}</h2>
         <h3>{name}</h3>
         <p>{formatAtomicMass(atomicMass)}</p>
+        <p>{yearDiscovered}</p>
       </section>
     </NavLink>
   );
@@ -46,6 +48,7 @@ Element.propTypes = {
   atomicNumber: PropTypes.string,
   name: PropTypes.string,
   symbol: PropTypes.string,
+  yearDiscovered: PropTypes.string,
   // altColor: PropTypes.bool,
 };
 
@@ -54,6 +57,7 @@ Element.defaultProps = {
   atomicNumber: '0',
   name: 'noElement',
   symbol: '0',
+  yearDiscovered: '0',
   // altColor: false,
 };
 
