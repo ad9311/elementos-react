@@ -34,7 +34,7 @@ const GroupInfo = (props) => {
   const homeGroup = () => (
     <div>
       <p>{`Sorted by ${methodName}`}</p>
-      <button type="button" onClick={handleSort}>{orderDescOn ? 'Desc' : 'Asce'}</button>
+      <button type="button" onClick={handleSort}>{orderDescOn ? 'Asce' : 'Desc'}</button>
     </div>
   );
 
