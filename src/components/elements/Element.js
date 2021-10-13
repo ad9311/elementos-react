@@ -11,6 +11,7 @@ const Element = (props) => {
     atomicNumber,
     name,
     symbol,
+    noLink,
     // altColor,
   } = props;
   const dispatch = useDispatch();
@@ -27,16 +28,27 @@ const Element = (props) => {
     dispatch(inspectElement(selection));
   };
 
-  return (
-    <NavLink exact to={path} onClick={handleInspection}>
-      <section>
-        <p>{atomicNumber}</p>
-        <h2>{symbol}</h2>
-        <h3>{name}</h3>
-        <p>{formatAtomicMass(atomicMass)}</p>
-      </section>
-    </NavLink>
+  const section = () => (
+    <section>
+      <p>{atomicNumber}</p>
+      <h2>{symbol}</h2>
+      <h3>{name}</h3>
+      <p>{formatAtomicMass(atomicMass)}</p>
+    </section>
   );
+
+  const hasLink = () => {
+    if (noLink) {
+      return section();
+    }
+    return (
+      <NavLink exact to={path} onClick={handleInspection}>
+        {section()}
+      </NavLink>
+    );
+  };
+
+  return hasLink();
 };
 
 Element.propTypes = {
@@ -44,6 +56,7 @@ Element.propTypes = {
   atomicNumber: PropTypes.string,
   name: PropTypes.string,
   symbol: PropTypes.string,
+  noLink: PropTypes.bool,
   // altColor: PropTypes.bool,
 };
 
@@ -52,6 +65,7 @@ Element.defaultProps = {
   atomicNumber: '0',
   name: 'noElement',
   symbol: '0',
+  noLink: false,
   // altColor: false,
 };
 

@@ -8,13 +8,22 @@ export const formatAtomicMass = (rawAtomicMass) => {
 };
 
 export const getSelection = (element, elements) => {
-  const list = elements.filter(
-    (groupElement) => groupElement.groupBlock === element.groupBlock,
-  ).filter((groupElement) => groupElement.atomicNumber !== element.atomicNumber);
-  const name = element.groupBlock;
-  const group = { list, name };
+  if (element !== undefined) {
+    const list = elements.filter(
+      (groupElement) => groupElement.groupBlock === element.groupBlock,
+    ).filter((groupElement) => groupElement.atomicNumber !== element.atomicNumber);
+    const name = element.groupBlock;
+    const group = { list, name };
 
-  return { element, group };
+    return { element, group };
+  }
+  return {
+    element: {},
+    group: {
+      list: [],
+      name: undefined,
+    },
+  };
 };
 
 export const nameToLowerCase = (name) => {

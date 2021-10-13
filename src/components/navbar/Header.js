@@ -17,13 +17,13 @@ const Header = () => {
     if (path.includes('/details/', '')) {
       const name = nameToLowerCase(element.name);
       const currentElement = path.replace('/details/', '');
-      const match = name !== currentElement;
+      const noMatch = name !== currentElement;
 
       if (status === 'default') {
         dispatch(fetchElements());
       }
 
-      if (match) {
+      if (noMatch) {
         const foundElement = searchElement(currentElement, elements);
         const selection = getSelection(foundElement, elements);
         dispatch(inspectElement(selection));
@@ -38,22 +38,44 @@ const Header = () => {
     return false;
   };
 
-  return (
-    <header className="pos-sticky top-0">
-      <Navbar />
-      {isInspecting()
-        ? (
+  const elementExists = () => {
+    if (isInspecting() && element.name === undefined) {
+      return (
+        <h1>Element does not exist!</h1>
+      );
+    }
+
+    if (isInspecting() && element.name !== undefined) {
+      return (
+        <div>
           <Element
             atomicMass={element.atomicMass}
             atomicNumber={element.atomicNumber}
             name={element.name}
             symbol={element.symbol}
+            noLink
           />
-        )
-        : <h1>Periodic Table</h1>}
-      {isInspecting()
-        ? <div><p>{`Other ${group.name} elements`}</p></div>
-        : <div><p>Elements By Atomic Mass</p></div>}
+          <div>
+            <p>{`Other ${group.name} elements.`}</p>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        <h1>Periodic Table</h1>
+        <div>
+          <p>Sorted by Atomic Mass</p>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <header className="pos-sticky top-0">
+      <Navbar />
+      {elementExists()}
     </header>
   );
 };
