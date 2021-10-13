@@ -11,6 +11,17 @@
   background-color: var(--light-blue);
 }
 
+.atom {
+  animation:spin 10s linear infinite;
+}
+
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
+}
+
 .groupinfo {
   font-weight: 600;
   text-transform: uppercase;
