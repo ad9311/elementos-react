@@ -6,6 +6,7 @@ import { inspectElement } from '../../store/elements/inspectReducer';
 import { getSelection, nameToLowerCase, searchElement } from '../../utils/utils';
 import Element from '../elements/Element';
 import Navbar from './Navbar';
+import GroupInfo from './GroupInfo';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -55,9 +56,7 @@ const Header = () => {
             symbol={element.symbol}
             noLink
           />
-          <div>
-            <p>{`Other ${group.name} elements.`}</p>
-          </div>
+          <GroupInfo groupName={group.name} />
         </div>
       );
     }
@@ -65,9 +64,7 @@ const Header = () => {
     return (
       <div>
         <h1>Periodic Table</h1>
-        <div>
-          <p>Sorted by Atomic Mass</p>
-        </div>
+        <GroupInfo />
       </div>
     );
   };
