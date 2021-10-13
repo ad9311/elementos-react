@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showMenu } from '../../store/elements/arrangeReducer';
 import { toggle } from '../../utils/utils';
 import Menu from './Menu';
+import Back from '../../img/back.svg';
+import Gear from '../../img/gear.svg';
+import style from './Header.module.css';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -19,10 +22,18 @@ const Navbar = () => {
   );
 
   return (
-    <nav>
-      <NavLink exact to="/">Back</NavLink>
-      <h4>Elementos</h4>
-      <button type="button" onClick={handleShowMenu}>Sort</button>
+    <nav className={style.navbar}>
+      <div className="d-flex justify-between align-items-center">
+        <NavLink exact to="/" className={style.icon}><img src={Back} alt="back" /></NavLink>
+        <h4>Elementos</h4>
+        <button
+          className={`border-none bg-transparent ${style.icon}`}
+          type="button"
+          onClick={handleShowMenu}
+        >
+          <img src={Gear} alt="settings" />
+        </button>
+      </div>
       {menuOn ? menu('d-block') : menu('d-none')}
     </nav>
   );

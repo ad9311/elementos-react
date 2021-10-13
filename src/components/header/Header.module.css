@@ -1,0 +1,8 @@
+.navbar {
+  padding: 0.5rem;
+  background-color: var(--medium-blue);
+}
+
+.icon {
+  height: 18px;
+}
