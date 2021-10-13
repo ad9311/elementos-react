@@ -1,4 +1,4 @@
-const sortingMethods = [
+export const sortingMethods = [
   {
     name: 'Atomic Mass',
     sortBy: 'atomicMass',
@@ -25,4 +25,13 @@ const sortingMethods = [
   },
 ];
 
-export default sortingMethods;
+export const groupingMethods = [
+  {
+    name: 'Standard State',
+    groupBy: 'standardState',
+  },
+  {
+    name: 'Group Block',
+    groupBy: 'groupBlock',
+  },
+];

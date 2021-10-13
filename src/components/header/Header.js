@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchElements } from '../../store/elements/loadReducer';
 import { inspectElement } from '../../store/elements/inspectReducer';
 import {
-  getSelection,
   nameToLowerCase,
   searchElement,
   onInspection,
 } from '../../utils/utils';
+import groupByCategory from '../../utils/groupByCategory';
 import Element from '../elements/Element';
 import Navbar from './Navbar';
 import GroupInfo from './GroupInfo';
@@ -18,6 +18,7 @@ const Header = () => {
   const path = useLocation().pathname;
   const { elements, status } = useSelector((state) => state.periodicTable);
   const { element, group } = useSelector((state) => state.inspect.selection);
+  const { groupBy } = useSelector((state) => state.arrange);
 
   useEffect(() => {
     if (path.includes('/details/', '')) {
@@ -31,7 +32,7 @@ const Header = () => {
 
       if (noMatch) {
         const foundElement = searchElement(currentElement, elements);
-        const selection = getSelection(foundElement, elements);
+        const selection = groupByCategory(groupBy, foundElement, elements);
         dispatch(inspectElement(selection));
       }
     }

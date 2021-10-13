@@ -5,7 +5,7 @@ const GROUP_ELEMENTS = 'periodic_table/elements/GROUP_ELEMENTS';
 const initialState = {
   menuOn: false,
   sortBy: 'atomicMass',
-  grouBy: 'groupBlock',
+  groupBy: 'groupBlock',
 };
 
 export const showMenu = (payload = false) => (
@@ -35,19 +35,19 @@ const arrangeReducer = (state = initialState, action) => {
       return {
         menuOn: action.payload,
         sortBy: state.sortBy,
-        grouBy: state.grouBy,
+        groupBy: state.grouBy,
       };
     case SORT_ELEMENTS:
       return {
         menuOn: false,
         sortBy: action.payload,
-        grouBy: state.grouBy,
+        groupBy: state.grouBy,
       };
     case GROUP_ELEMENTS:
       return {
         menuOn: false,
         sortBy: state.sortBy,
-        grouBy: action.payload,
+        groupBy: action.payload,
       };
     default:
       return state;

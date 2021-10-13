@@ -1,6 +1,6 @@
 import { formatAtomicMass } from './utils';
 
-export const atomicMass = (elements, order = { a: -1, b: 1 }) => {
+const atomicMass = (elements, order = { a: -1, b: 1 }) => {
   elements.sort((a, b) => {
     const aAtomicMass = formatAtomicMass(a.atomicMass);
     const bAtomicMass = formatAtomicMass(b.atomicMass);
@@ -16,7 +16,7 @@ export const atomicMass = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-export const boilingPoint = (elements, order = { a: -1, b: 1 }) => {
+const boilingPoint = (elements, order = { a: -1, b: 1 }) => {
   elements.sort((a, b) => {
     const aBoilingPoint = Number(a.boilingPoint);
     const bBoilingPoint = Number(b.boilingPoint);
@@ -32,7 +32,7 @@ export const boilingPoint = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-export const density = (elements, order = { a: -1, b: 1 }) => {
+const density = (elements, order = { a: -1, b: 1 }) => {
   elements.sort((a, b) => {
     const aDensity = Number(a.density);
     const bDensity = Number(b.density);
@@ -48,7 +48,7 @@ export const density = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-export const meltingPoint = (elements, order = { a: -1, b: 1 }) => {
+const meltingPoint = (elements, order = { a: -1, b: 1 }) => {
   elements.sort((a, b) => {
     const aMeltingPoint = Number(a.meltingPoint);
     const bMeltingPoint = Number(b.meltingPoint);
@@ -64,7 +64,7 @@ export const meltingPoint = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-export const name = (elements, order = { a: -1, b: 1 }) => {
+const name = (elements, order = { a: -1, b: 1 }) => {
   elements.sort((a, b) => {
     if (a.name < b.name) {
       return order.a;
@@ -77,7 +77,7 @@ export const name = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-export const yearDiscovered = (elements, order = { a: -1, b: 1 }) => {
+const yearDiscovered = (elements, order = { a: -1, b: 1 }) => {
   elements.sort((a, b) => {
     const aYear = Number(a.yearDiscovered);
     const bYear = Number(b.yearDiscovered);
@@ -98,7 +98,7 @@ export const yearDiscovered = (elements, order = { a: -1, b: 1 }) => {
   return elements;
 };
 
-export const sortByMethod = (elements, method, order) => {
+const sortByMethod = (elements, method, order) => {
   switch (method) {
     case 'atomicMass':
       return atomicMass(elements, order);
@@ -116,3 +116,5 @@ export const sortByMethod = (elements, method, order) => {
       return elements;
   }
 };
+
+export default sortByMethod;
