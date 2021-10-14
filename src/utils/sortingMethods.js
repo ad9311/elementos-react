@@ -21,10 +21,10 @@ const boilingPoint = (elements, order) => {
     const aBoilingPoint = Number(a.boilingPoint);
     const bBoilingPoint = Number(b.boilingPoint);
 
-    if (aBoilingPoint < bBoilingPoint) {
+    if (aBoilingPoint < bBoilingPoint && aBoilingPoint !== 0) {
       return order.a;
     }
-    if (aBoilingPoint > bBoilingPoint) {
+    if (aBoilingPoint > bBoilingPoint && bBoilingPoint !== 0) {
       return order.b;
     }
     return 0;
@@ -37,10 +37,10 @@ const density = (elements, order) => {
     const aDensity = Number(a.density);
     const bDensity = Number(b.density);
 
-    if (aDensity < bDensity) {
+    if (aDensity < bDensity && aDensity !== 0) {
       return order.a;
     }
-    if (aDensity > bDensity) {
+    if (aDensity > bDensity && bDensity !== 0) {
       return order.b;
     }
     return 0;
@@ -53,10 +53,10 @@ const meltingPoint = (elements, order) => {
     const aMeltingPoint = Number(a.meltingPoint);
     const bMeltingPoint = Number(b.meltingPoint);
 
-    if (aMeltingPoint < bMeltingPoint) {
+    if (aMeltingPoint < bMeltingPoint && aMeltingPoint !== 0) {
       return order.a;
     }
-    if (aMeltingPoint > bMeltingPoint) {
+    if (aMeltingPoint > bMeltingPoint && bMeltingPoint !== 0) {
       return order.b;
     }
     return 0;
