@@ -19,8 +19,6 @@ const Header = () => {
   const { element, group } = useSelector((state) => state.inspect);
   const { groupBy } = useSelector((state) => state.arrange);
 
-  console.log(path);
-
   useEffect(() => {
     if (path.includes('/details/', '')) {
       const name = nameToLowerCase(element.name);
