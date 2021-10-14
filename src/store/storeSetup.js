@@ -1,5 +1,4 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-// import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import loadReducer from './elements/loadReducer';
 import inspectReducer from './elements/inspectReducer';
