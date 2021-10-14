@@ -1,44 +1,90 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-## Available Scripts
+# Elementos - React/Redux Microverse Capstone Project
 
-In the project directory, you can run:
+> Elementos is a web-based application that allows you to explore periodic table elements. 
 
-### `yarn start`
+It features two pages, the home page, and the details page. On the first page, you'll see a list with all the periodic table elements. When you click on any element this will redirect you to the details page where more data will be available.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
+<img src="./misc-img/home.png" width=250>
+<img src="./misc-img/details.png" width=250>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Live Version
 
-### `yarn test`
+There is a live version available in [elementos](https://sleepy-albattani-36bd24.netlify.app//)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `yarn build`
+- ![](https://img.shields.io/badge/-JavaScript-yellow)
+- ![](https://img.shields.io/badge/-React/Redux-purple)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [Node.Js](https://nodejs.org/en/)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `yarn eject`
+To get started, first, clone this project by using the following command:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+git clone https://github.com/ad9311/elementos.git
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then change directory into the root folder `cd elementos`</br>
+Before launching the application, you will need to run a few commands:</br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+yarn install
+```
+Then launch the application with:</br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+yarn start
+```
 
-## Learn More
+The application can load faster if you build it. Follow these steps:</br>
+First, run `yarn run build`</br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Then serve the build with:</br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+yarn global add serve
+serve -s build
+```
+
+This will open the server and you can open it with links that appear in the console.
+
+### Contributing
+
+Contributions, issues and, feature requests are welcome!
+
+You can do it on [issues page](https://github.com/ad9311/elementos/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Special thanks and credits to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) for inspiring this project. Check out his project [Ballhead App](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
+- [Microverse](https://www.microverse.org/) for international opportunities.
+- Icons from [iconmonstr](https://iconmonstr.com/)
+
+## Authors
+
+**Ángel Díaz**
+
+- GitHub: [@ad9311](https://github.com/ad9311)
+- Twitter: [@adiaz9311](https://twitter.com/adiaz9311)
+- LinkedIn: [Ángel Díaz](https://www.linkedin.com/in/ad9311/)
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+![](https://img.shields.io/badge/license-MIT-green)</br>
+This project is [MIT](./LICENSE) licensed.
