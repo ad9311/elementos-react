@@ -1,4 +1,4 @@
-import groupByCategory from "../utils/groupByCategory";
+import groupByCategory from '../utils/groupByCategory';
 import elements from './elements.json';
 
 describe('Group by Group Block', () => {
