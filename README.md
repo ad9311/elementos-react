@@ -12,7 +12,7 @@ It features two pages, the home page, and the details page. On the first page, y
 
 ## Live Version
 
-There is a live version available in [elementos](https://sleepy-albattani-36bd24.netlify.app//)
+There is a live version available in [ad9311-elementos](ad9311-elementos.netlify.app)
 
 ## Built With
 
