@@ -9,6 +9,7 @@ import InspectedElement from '../elements/InspectedElement';
 import Navbar from './Navbar';
 import GroupInfo from './GroupInfo';
 import Atom from '../../img/atom.svg';
+import Sad from '../../img/sad.svg';
 import style from './Header.module.css';
 
 const Header = () => {
@@ -17,6 +18,8 @@ const Header = () => {
   const { elements, status } = useSelector((state) => state.periodicTable);
   const { element, group } = useSelector((state) => state.inspect);
   const { groupBy } = useSelector((state) => state.arrange);
+
+  console.log(path);
 
   useEffect(() => {
     if (path.includes('/details/', '')) {
@@ -39,7 +42,12 @@ const Header = () => {
   const elementExists = () => {
     if (onInspection(path) && element.name === undefined) {
       return (
-        <h1>Element does not exist!</h1>
+        <div className="con-1 pt-3 text-center">
+          <h1>Element does not exist!</h1>
+          <div className="pt-3">
+            <img src={Sad} alt="NotFound" />
+          </div>
+        </div>
       );
     }
 
@@ -61,18 +69,29 @@ const Header = () => {
       );
     }
 
-    return (
-      <div className="con-1">
-        <div className="grid-two">
-          <div className="p-2">
-            <img src={Atom} alt="atom" className={`img-fluid ${style.atom}`} />
+    if (path === '/') {
+      return (
+        <div className="con-1">
+          <div className="grid-two">
+            <div className="p-2">
+              <img src={Atom} alt="atom" className={`img-fluid ${style.atom}`} />
+            </div>
+            <div className="d-flex flex-column align-center lh-1">
+              <h1 className="fs-2 text-uppercase">Periodic Table</h1>
+              <p className="fw-4">118 Elements</p>
+            </div>
           </div>
-          <div className="d-flex flex-column align-center lh-1">
-            <h1 className="fs-2 text-uppercase">Periodic Table</h1>
-            <p className="fw-4">118 Elements</p>
-          </div>
+          <GroupInfo />
         </div>
-        <GroupInfo />
+      );
+    }
+
+    return (
+      <div className="con-1 text-center pt-3">
+        <h2>Page Not found - 404</h2>
+        <div className="pt-3">
+          <img src={Sad} alt="NotFound" />
+        </div>
       </div>
     );
   };
