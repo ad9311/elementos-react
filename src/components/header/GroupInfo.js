@@ -17,9 +17,9 @@ const GroupInfo = (props) => {
 
   const getOrder = () => {
     if (orderDescOn) {
-      return { a: -1, b: 1 };
+      return false;
     }
-    return { a: 1, b: -1 };
+    return true;
   };
 
   const handleSort = () => {

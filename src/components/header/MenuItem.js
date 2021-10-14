@@ -14,11 +14,12 @@ const MenuItem = (props) => {
   const dispatch = useDispatch();
   const { elements } = useSelector((state) => state.periodicTable);
   const { element } = useSelector((state) => state.inspect);
+  const { orderDescOn } = useSelector((state) => state.arrange);
 
   const handleSortig = () => {
     const methodName = getSortingName(sortBy);
     dispatch(sortElements({ sortBy, methodName }));
-    const sortedElements = sortByMethod(elements, sortBy);
+    const sortedElements = sortByMethod(elements, sortBy, orderDescOn);
     dispatch(rearrangeElements(sortedElements));
   };
 

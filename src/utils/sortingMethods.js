@@ -1,104 +1,96 @@
 import { formatAtomicMass } from './utils';
 
 const atomicMass = (elements, order) => {
-  elements.sort((a, b) => {
-    const aAtomicMass = formatAtomicMass(a.atomicMass);
-    const bAtomicMass = formatAtomicMass(b.atomicMass);
-
-    if (aAtomicMass < bAtomicMass) {
-      return order.a;
-    }
-    if (aAtomicMass > bAtomicMass) {
-      return order.b;
-    }
-    return 0;
-  });
-  return elements;
+  if (order) {
+    return elements.sort((a, b) => formatAtomicMass(a.atomicMass) < formatAtomicMass(b.atomicMass));
+  }
+  return elements.sort((a, b) => formatAtomicMass(a.atomicMass) > formatAtomicMass(b.atomicMass));
 };
 
 const boilingPoint = (elements, order) => {
-  elements.sort((a, b) => {
-    const aBoilingPoint = Number(a.boilingPoint);
-    const bBoilingPoint = Number(b.boilingPoint);
+  const unknown = elements.filter((element) => element.boilingPoint === '');
+  const hasValue = elements.filter((element) => element.boilingPoint !== '');
 
-    if (aBoilingPoint < bBoilingPoint && aBoilingPoint !== 0) {
-      return order.a;
+  const getHasValue = () => {
+    if (order) {
+      return hasValue.sort((a, b) => Number(a.boilingPoint) < Number(b.boilingPoint));
     }
-    if (aBoilingPoint > bBoilingPoint && bBoilingPoint !== 0) {
-      return order.b;
-    }
-    return 0;
-  });
-  return elements;
+    return hasValue.sort((a, b) => Number(a.boilingPoint) > Number(b.boilingPoint));
+  };
+
+  const filteredHasValue = getHasValue();
+
+  if (order) {
+    return [...filteredHasValue, ...unknown];
+  }
+  return [...filteredHasValue, ...unknown];
 };
 
 const density = (elements, order) => {
-  elements.sort((a, b) => {
-    const aDensity = Number(a.density);
-    const bDensity = Number(b.density);
+  const unknown = elements.filter((element) => element.density === '');
+  const hasValue = elements.filter((element) => element.density !== '');
 
-    if (aDensity < bDensity && aDensity !== 0) {
-      return order.a;
+  const getHasValue = () => {
+    if (order) {
+      return hasValue.sort((a, b) => Number(a.density) < Number(b.density));
     }
-    if (aDensity > bDensity && bDensity !== 0) {
-      return order.b;
-    }
-    return 0;
-  });
-  return elements;
+    return hasValue.sort((a, b) => Number(a.density) > Number(b.density));
+  };
+
+  const filteredHasValue = getHasValue();
+
+  if (order) {
+    return [...filteredHasValue, ...unknown];
+  }
+  return [...filteredHasValue, ...unknown];
 };
 
 const meltingPoint = (elements, order) => {
-  elements.sort((a, b) => {
-    const aMeltingPoint = Number(a.meltingPoint);
-    const bMeltingPoint = Number(b.meltingPoint);
+  const unknown = elements.filter((element) => element.meltingPoint === '');
+  const hasValue = elements.filter((element) => element.meltingPoint !== '');
 
-    if (aMeltingPoint < bMeltingPoint && aMeltingPoint !== 0) {
-      return order.a;
+  const getHasValue = () => {
+    if (order) {
+      return hasValue.sort((a, b) => Number(a.meltingPoint) < Number(b.meltingPoint));
     }
-    if (aMeltingPoint > bMeltingPoint && bMeltingPoint !== 0) {
-      return order.b;
-    }
-    return 0;
-  });
-  return elements;
+    return hasValue.sort((a, b) => Number(a.meltingPoint) > Number(b.meltingPoint));
+  };
+
+  const filteredHasValue = getHasValue();
+
+  if (order) {
+    return [...filteredHasValue, ...unknown];
+  }
+  return [...filteredHasValue, ...unknown];
 };
 
 const name = (elements, order) => {
-  elements.sort((a, b) => {
-    if (a.name < b.name) {
-      return order.a;
-    }
-    if (a.name > b.name) {
-      return order.b;
-    }
-    return 0;
-  });
-  return elements;
+  if (order) {
+    return elements.sort((a, b) => a.name < b.name);
+  }
+  return elements.sort((a, b) => a.name > b.name);
 };
 
 const yearDiscovered = (elements, order) => {
-  elements.sort((a, b) => {
-    const aYear = Number(a.yearDiscovered);
-    const bYear = Number(b.yearDiscovered);
-    if (Number.isNaN(aYear) && a.name < b.name) {
-      return order.a;
+  const ancient = elements.filter((element) => element.yearDiscovered === 'Ancient');
+  const modern = elements.filter((element) => element.yearDiscovered !== 'Ancient');
+
+  const getModern = () => {
+    if (order) {
+      return modern.sort((a, b) => Number(a.yearDiscovered) < Number(b.yearDiscovered));
     }
-    if (Number.isNaN(bYear) && a.name > b.name) {
-      return order.b;
-    }
-    if (aYear < bYear) {
-      return order.a;
-    }
-    if (aYear > bYear) {
-      return order.b;
-    }
-    return 0;
-  });
-  return elements;
+    return modern.sort((a, b) => Number(a.yearDiscovered) > Number(b.yearDiscovered));
+  };
+
+  const filteredModern = getModern();
+
+  if (order) {
+    return [...filteredModern, ...ancient];
+  }
+  return [...ancient, ...filteredModern];
 };
 
-const sortByMethod = (elements, method, order = { a: -1, b: 1 }) => {
+const sortByMethod = (elements, method, order) => {
   switch (method) {
     case 'atomicMass':
       return atomicMass(elements, order);
