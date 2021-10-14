@@ -15,15 +15,15 @@ const InspectedElement = (props) => {
     symbol,
   } = props;
 
-  const AT = `Atomic Number: ${atomicNumber}`;
-  const AM = `Atomic Mass: ${formatAtomicMass(atomicMass)} u`;
-  const BP = `Boiling Point: ${boilingPoint} K`;
-  const UBP = 'Boiling Point: Undefined';
-  const DE = `Density: ${density} g/cm3`;
-  const UDE = 'Density: Undefined';
-  const MP = `Melting Point: ${meltingPoint} K`;
-  const UMP = 'Melting Point: Undefined';
-  const YD = `Discovered in: ${yearDiscovered}`;
+  const AT = <p><b>{`Atomic Number: ${atomicNumber}`}</b></p>;
+  const AM = <p><b>{`Atomic Mass: ${formatAtomicMass(atomicMass)} u`}</b></p>;
+  const BP = <p><b>{`Boiling Point: ${boilingPoint} K`}</b></p>;
+  const UBP = <p><b>Boiling Point: Undefined</b></p>;
+  const DE = <p><b>{`Density: ${density} g/cm3`}</b></p>;
+  const UDE = <p><b>Density: Undefined</b></p>;
+  const MP = <p><b>{`Melting Point: ${meltingPoint} K`}</b></p>;
+  const UMP = <p><b>Melting Point: Undefined</b></p>;
+  const YD = <p><b>{`Discovered in: ${yearDiscovered}`}</b></p>;
 
   return (
     <section className={style.inspect}>
@@ -31,14 +31,14 @@ const InspectedElement = (props) => {
         <h2 className={style.inspectSymbol}>{symbol}</h2>
         <h3>{name}</h3>
       </div>
-      <div>
+      <div className="lh-4">
         <ul className={style.info}>
-          <li><p>{AT}</p></li>
-          <li><p>{AM}</p></li>
-          <li><p>{boilingPoint === '' ? UBP : BP}</p></li>
-          <li><p>{density === '' ? UDE : DE}</p></li>
-          <li><p>{meltingPoint === '' ? UMP : MP}</p></li>
-          <li><p>{YD}</p></li>
+          <li>{AT}</li>
+          <li>{AM}</li>
+          <li>{boilingPoint === '' ? UBP : BP}</li>
+          <li>{density === '' ? UDE : DE}</li>
+          <li>{meltingPoint === '' ? UMP : MP}</li>
+          <li>{YD}</li>
         </ul>
       </div>
     </section>

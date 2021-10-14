@@ -22,6 +22,7 @@
 }
 
 .inspectSymbol {
+  margin-bottom: 1.1rem;
   font-size: 6rem;
   color: var(--dark-blue);
 }
@@ -29,6 +30,7 @@
 .info {
   margin: auto;
   max-width: 11.3rem;
+  font-size: 0.9rem;
 }
 
 .groupElement:nth-child(even) {

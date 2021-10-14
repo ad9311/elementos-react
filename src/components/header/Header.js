@@ -68,7 +68,7 @@ const Header = () => {
             <img src={Atom} alt="atom" className={`img-fluid ${style.atom}`} />
           </div>
           <div className="d-flex flex-column align-center lh-1">
-            <h1 className="fs-3 text-uppercase">Periodic Table</h1>
+            <h1 className="fs-2 text-uppercase">Periodic Table</h1>
             <p className="fw-4">118 Elements</p>
           </div>
         </div>

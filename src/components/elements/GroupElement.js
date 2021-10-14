@@ -34,7 +34,10 @@ const GroupElement = (props) => {
     <NavLink exact to={path} onClick={handleInspection}>
       <section className="d-flex justify-between ptb-2 plr-1">
         <div>
-          <p>{`(${symbol}) ${name}`}</p>
+          <p>
+            {`(${symbol}) - `}
+            <b>{name}</b>
+          </p>
         </div>
         <div className="d-flex align-items-center">
           <p className="mr-2">{formatAtomicMass(atomicMass)}</p>
