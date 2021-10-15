@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { inspectElement } from '../../store/elements/inspectReducer';
-import { formatAtomicMass } from '../../utils/utils';
 import groupByCategory from '../../utils/groupByCategory';
 import Inspect from '../../img/inspect.svg';
 import style from './Element.module.css';
@@ -43,7 +42,7 @@ const Element = (props) => {
         </div>
         <div className="text-right lh-2">
           <h3>{name}</h3>
-          <p>{formatAtomicMass(atomicMass)}</p>
+          <p>{Number(atomicMass).toFixed(3)}</p>
         </div>
       </section>
     </NavLink>

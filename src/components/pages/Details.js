@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { formatAtomicMass } from '../../utils/utils';
 import GroupElement from '../elements/GroupElement';
 import style from '../elements/Element.module.css';
 
 const Details = () => {
   const { group } = useSelector((state) => state.inspect);
-  group.list.sort((a, b) => formatAtomicMass(a.atomicMass) > formatAtomicMass(b.atomicMass));
+  group.list.sort((a, b) => a.atomicMass.localeCompare(b.atomicMass, undefined, { numeric: true }));
 
   const mapGrouping = group.list.map(
     (element) => (
