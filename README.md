@@ -12,19 +12,20 @@ It features two pages, the home page, and the details page. On the first page, y
 
 ## Live Version
 
-There is a live version available in [ad9311-elementos](ad9311-elementos.netlify.app)
+There is a live version available in [ad9311-elementos](https://ad9311-elementos.netlify.app/)
 
 ## Built With
 
 - ![](https://img.shields.io/badge/-JavaScript-yellow)
 - ![](https://img.shields.io/badge/-React/Redux-purple)
 
+## Getting Started
+
 ### Prerequisites
 
 - [Node.Js](https://nodejs.org/en/)
+- [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/) OR
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
-
-## Getting Started
 
 To get started, first, clone this project by using the following command:
 
@@ -33,28 +34,35 @@ git clone https://github.com/ad9311/elementos.git
 ```
 
 Then change directory into the root folder `cd elementos`</br>
+**NOTE:** The `create-react-app` command used to create this application uses `yarn` as its default package manager. I suggest using `yarn` for consistency, but if that does not work, you can use `npm`. Also, note that running `npm` will create a "package-lock.json" file which may conflict with the already existing "yarn.lock" file.</br>
+
 Before launching the application, you will need to run a few commands:</br>
 
-```
-yarn install
-```
+`yarn install` or `npm install`
+
 Then launch the application with:</br>
 
-```
-yarn start
-```
+`yarn start` or `npm start` this will open a tab in your broswer. Wait until the application loads completely.
+
+### Build
 
 The application can load faster if you build it. Follow these steps:</br>
-First, run `yarn run build`</br>
+First, run `yarn build` or `build run build`</br>
 
 Then serve the build with:</br>
 
-```
-yarn global add serve
-serve -s build
-```
+`yarn global add serve` or `npm install -g serve` then `serve -s build`
 
-This will open the server and you can open it with links that appear in the console.
+This will open the server and a message similar to the one below will appear in the console:</br>
+```
+Serving!                                              
+                                                     
+      - Local:            http://localhost:5000      
+      - On Your Network:  http://192.168.0.20:5000   
+                                                     
+      Copied local address to clipboard!
+```
+Use the link from your clipboard to open the application.
 
 ### Contributing
 

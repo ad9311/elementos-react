@@ -12,7 +12,6 @@ const GroupElement = (props) => {
     atomicNumber,
     name,
     symbol,
-    // altColor,
   } = props;
   const dispatch = useDispatch();
   const { elements } = useSelector((state) => state.periodicTable);
@@ -52,7 +51,6 @@ GroupElement.propTypes = {
   atomicNumber: PropTypes.string,
   name: PropTypes.string,
   symbol: PropTypes.string,
-  // altColor: PropTypes.bool,
 };
 
 GroupElement.defaultProps = {
@@ -60,7 +58,6 @@ GroupElement.defaultProps = {
   atomicNumber: '0',
   name: 'noElement',
   symbol: '0',
-  // altColor: false,
 };
 
 export default GroupElement;
