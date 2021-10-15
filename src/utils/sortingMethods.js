@@ -2,9 +2,17 @@ import { formatAtomicMass } from './utils';
 
 const atomicMass = (elements, order) => {
   if (order) {
-    return elements.sort((a, b) => formatAtomicMass(a.atomicMass) < formatAtomicMass(b.atomicMass));
+    return elements.sort(
+      (a, b) => formatAtomicMass(b.atomicMass).localeCompare(
+        formatAtomicMass(a.atomicMass), undefined, { numeric: true },
+      ),
+    );
   }
-  return elements.sort((a, b) => formatAtomicMass(a.atomicMass) > formatAtomicMass(b.atomicMass));
+  return elements.sort(
+    (a, b) => formatAtomicMass(a.atomicMass).localeCompare(
+      formatAtomicMass(b.atomicMass), undefined, { numeric: true },
+    ),
+  );
 };
 
 const boilingPoint = (elements, order) => {
@@ -13,16 +21,19 @@ const boilingPoint = (elements, order) => {
 
   const getHasValue = () => {
     if (order) {
-      return hasValue.sort((a, b) => Number(a.boilingPoint) < Number(b.boilingPoint));
+      return hasValue.sort(
+        (a, b) => b.boilingPoint.localeCompare(
+          a.boilingPoint, undefined, { numeric: true },
+        ),
+      );
     }
-    return hasValue.sort((a, b) => Number(a.boilingPoint) > Number(b.boilingPoint));
+    return hasValue.sort(
+      (a, b) => a.boilingPoint.localeCompare(
+        b.boilingPoint, undefined, { numeric: true },
+      ),
+    );
   };
-
   const filteredHasValue = getHasValue();
-
-  if (order) {
-    return [...filteredHasValue, ...unknown];
-  }
   return [...filteredHasValue, ...unknown];
 };
 
@@ -32,16 +43,19 @@ const density = (elements, order) => {
 
   const getHasValue = () => {
     if (order) {
-      return hasValue.sort((a, b) => Number(a.density) < Number(b.density));
+      return hasValue.sort(
+        (a, b) => b.density.localeCompare(
+          a.density, undefined, { numeric: true },
+        ),
+      );
     }
-    return hasValue.sort((a, b) => Number(a.density) > Number(b.density));
+    return hasValue.sort(
+      (a, b) => a.density.localeCompare(
+        b.density, undefined, { numeric: true },
+      ),
+    );
   };
-
   const filteredHasValue = getHasValue();
-
-  if (order) {
-    return [...filteredHasValue, ...unknown];
-  }
   return [...filteredHasValue, ...unknown];
 };
 
@@ -51,24 +65,28 @@ const meltingPoint = (elements, order) => {
 
   const getHasValue = () => {
     if (order) {
-      return hasValue.sort((a, b) => Number(a.meltingPoint) < Number(b.meltingPoint));
+      return hasValue.sort(
+        (a, b) => b.meltingPoint.localeCompare(
+          a.meltingPoint, undefined, { numeric: true },
+        ),
+      );
     }
-    return hasValue.sort((a, b) => Number(a.meltingPoint) > Number(b.meltingPoint));
+    return hasValue.sort(
+      (a, b) => a.meltingPoint.localeCompare(
+        b.meltingPoint, undefined, { numeric: true },
+      ),
+    );
   };
 
   const filteredHasValue = getHasValue();
-
-  if (order) {
-    return [...filteredHasValue, ...unknown];
-  }
   return [...filteredHasValue, ...unknown];
 };
 
 const name = (elements, order) => {
   if (order) {
-    return elements.sort((a, b) => a.name < b.name);
+    return elements.sort((a, b) => b.name.localeCompare(a.name));
   }
-  return elements.sort((a, b) => a.name > b.name);
+  return elements.sort((a, b) => a.name.localeCompare(b.name));
 };
 
 const yearDiscovered = (elements, order) => {
@@ -77,9 +95,17 @@ const yearDiscovered = (elements, order) => {
 
   const getModern = () => {
     if (order) {
-      return modern.sort((a, b) => Number(a.yearDiscovered) < Number(b.yearDiscovered));
+      return modern.sort(
+        (a, b) => b.yearDiscovered.localeCompare(
+          a.yearDiscovered, undefined, { numeric: true },
+        ),
+      );
     }
-    return modern.sort((a, b) => Number(a.yearDiscovered) > Number(b.yearDiscovered));
+    return modern.sort(
+      (a, b) => a.yearDiscovered.localeCompare(
+        b.yearDiscovered, undefined, { numeric: true },
+      ),
+    );
   };
 
   const filteredModern = getModern();
