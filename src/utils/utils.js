@@ -1,13 +1,3 @@
-export const formatAtomicMass = (rawAtomicMass) => {
-  if (rawAtomicMass !== undefined) {
-    const atomicMass = rawAtomicMass.replace(/[(*)]/g, '');
-    const roundAtomicMass = parseFloat(atomicMass).toFixed(3);
-
-    return String(roundAtomicMass);
-  }
-  return '0';
-};
-
 export const nameToLowerCase = (name) => {
   if (name === undefined) {
     return undefined;

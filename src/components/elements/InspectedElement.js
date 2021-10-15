@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { formatAtomicMass } from '../../utils/utils';
 import style from './Element.module.css';
 
 const InspectedElement = (props) => {
@@ -16,10 +15,10 @@ const InspectedElement = (props) => {
   } = props;
 
   const AT = <p><b>{`Atomic Number: ${atomicNumber}`}</b></p>;
-  const AM = <p><b>{`Atomic Mass: ${formatAtomicMass(atomicMass)} u`}</b></p>;
+  const AM = <p><b>{`Atomic Mass: ${Number(atomicMass).toFixed(3)} u`}</b></p>;
   const BP = <p><b>{`Boiling Point: ${boilingPoint} K`}</b></p>;
   const UBP = <p><b>Boiling Point: Undefined</b></p>;
-  const DE = <p><b>{`Density: ${density} g/cm3`}</b></p>;
+  const DE = <p><b>{`Density: ${Number(density).toExponential(2)} g/cm3`}</b></p>;
   const UDE = <p><b>Density: Undefined</b></p>;
   const MP = <p><b>{`Melting Point: ${meltingPoint} K`}</b></p>;
   const UMP = <p><b>Melting Point: Undefined</b></p>;
@@ -35,9 +34,9 @@ const InspectedElement = (props) => {
         <ul className={style.info}>
           <li>{AT}</li>
           <li>{AM}</li>
-          <li>{boilingPoint === '' ? UBP : BP}</li>
-          <li>{density === '' ? UDE : DE}</li>
-          <li>{meltingPoint === '' ? UMP : MP}</li>
+          <li>{boilingPoint === 'NaN' ? UBP : BP}</li>
+          <li>{density === 'NaN' ? UDE : DE}</li>
+          <li>{meltingPoint === 'NaN' ? UMP : MP}</li>
           <li>{YD}</li>
         </ul>
       </div>

@@ -1,23 +1,22 @@
-import { formatAtomicMass } from './utils';
-
 const atomicMass = (elements, order) => {
   if (order) {
     return elements.sort(
-      (a, b) => formatAtomicMass(b.atomicMass).localeCompare(
-        formatAtomicMass(a.atomicMass), undefined, { numeric: true },
+      (a, b) => b.atomicMass.localeCompare(
+        a.atomicMass, undefined, { numeric: true },
       ),
     );
   }
   return elements.sort(
-    (a, b) => formatAtomicMass(a.atomicMass).localeCompare(
-      formatAtomicMass(b.atomicMass), undefined, { numeric: true },
+    (a, b) => a.atomicMass.localeCompare(
+      b.atomicMass, undefined, { numeric: true },
     ),
   );
 };
 
 const boilingPoint = (elements, order) => {
-  const unknown = elements.filter((element) => element.boilingPoint === '');
-  const hasValue = elements.filter((element) => element.boilingPoint !== '');
+  const unknown = elements.filter((element) => element.boilingPoint === 'NaN');
+  unknown.sort((a, b) => a.name.localeCompare(b.name));
+  const hasValue = elements.filter((element) => element.boilingPoint !== 'NaN');
 
   const getHasValue = () => {
     if (order) {
@@ -38,8 +37,9 @@ const boilingPoint = (elements, order) => {
 };
 
 const density = (elements, order) => {
-  const unknown = elements.filter((element) => element.density === '');
-  const hasValue = elements.filter((element) => element.density !== '');
+  const unknown = elements.filter((element) => element.density === 'NaN');
+  unknown.sort((a, b) => a.name.localeCompare(b.name));
+  const hasValue = elements.filter((element) => element.density !== 'NaN');
 
   const getHasValue = () => {
     if (order) {
@@ -60,8 +60,9 @@ const density = (elements, order) => {
 };
 
 const meltingPoint = (elements, order) => {
-  const unknown = elements.filter((element) => element.meltingPoint === '');
-  const hasValue = elements.filter((element) => element.meltingPoint !== '');
+  const unknown = elements.filter((element) => element.meltingPoint === 'NaN');
+  unknown.sort((a, b) => a.name.localeCompare(b.name));
+  const hasValue = elements.filter((element) => element.meltingPoint !== 'NaN');
 
   const getHasValue = () => {
     if (order) {
@@ -91,6 +92,7 @@ const name = (elements, order) => {
 
 const yearDiscovered = (elements, order) => {
   const ancient = elements.filter((element) => element.yearDiscovered === 'Ancient');
+  ancient.sort((a, b) => a.name.localeCompare(b.name));
   const modern = elements.filter((element) => element.yearDiscovered !== 'Ancient');
 
   const getModern = () => {

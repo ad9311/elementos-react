@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import fetchAPI from '../../api/fetchAPI';
+import formatRawData from '../../utils/formatRawData';
 
 const FETCH_ELEMENTS = 'periodic_table/FETCH_ELEMENTS/fulfilled';
 const REARRANGE_ELEMENTS = 'periodic_table/REARRANGE_ELEMENTS/fulfilled';
@@ -10,7 +11,8 @@ const initialState = {
 };
 
 export const fetchElements = createAsyncThunk('periodic_table/FETCH_ELEMENTS', async () => {
-  const elements = await fetchAPI();
+  const rawData = await fetchAPI();
+  const elements = formatRawData(rawData);
   return elements;
 });
 

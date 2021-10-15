@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { inspectElement } from '../../store/elements/inspectReducer';
-import { formatAtomicMass } from '../../utils/utils';
 import groupByCategory from '../../utils/groupByCategory';
 import Inspect from '../../img/inspect.svg';
 
@@ -40,7 +39,7 @@ const GroupElement = (props) => {
           </p>
         </div>
         <div className="d-flex align-items-center">
-          <p className="mr-2">{formatAtomicMass(atomicMass)}</p>
+          <p className="mr-2">{Number(atomicMass).toFixed(3)}</p>
           <img src={Inspect} alt="inspect" />
         </div>
       </section>
