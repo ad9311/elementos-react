@@ -1,1 +1,29 @@
 /* App.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --light-blue: #5889e5;
+  --medium-blue: #35548b;
+  --dark-blue: #2d4573;
+  --font-color: #fbfff1;
+}
+
+body {
+  margin: 0;
+  background-color: var(--light-blue);
+  color: var(--font-color);
+  font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}

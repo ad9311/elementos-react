@@ -1,0 +1,51 @@
+.navbar {
+  padding: 0.5rem;
+  background-color: var(--medium-blue);
+}
+
+.icon {
+  height: 18px;
+}
+
+.center {
+  background-color: var(--light-blue);
+}
+
+.atom {
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.groupinfo {
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: var(--medium-blue);
+}
+
+.menuOff {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
+}
+
+.menuOn {
+  max-height: 100px;
+  padding: 1rem;
+  opacity: 1;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.arange {
+  padding: 0.3rem;
+  border: none;
+  background-color: var(--dark-blue);
+  color: var(--font-color);
+}

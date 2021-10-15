@@ -1,12 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from './components/header/Header';
+import Home from './components/pages/Home';
+import Details from './components/pages/Details';
 import './App.css';
 
-function App() {
-  return (
+const App = () => (
+  <Router basename={process.env.PUBLIC_URL}>
+    <Header />
     <main>
-      <h1>React</h1>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/details/">
+          <Details />
+        </Route>
+      </Switch>
     </main>
-  );
-}
+  </Router>
+);
 
 export default App;
