@@ -7,18 +7,18 @@ describe('Sort', () => {
     expect(sortedElements[0].name).toEqual('Tennessine');
   });
 
-  test('asdasd', () => {
-    const sortedElements = sortByMethod(elements, 'density', false);
-    expect(sortedElements[0].name).toEqual('Xenon');
+  test('Iridium', () => {
+    const sortedElements = sortByMethod(elements, 'density', true);
+    expect(sortedElements[0].name).toEqual('Iridium');
   });
 
-  test('dfgf', () => {
+  test('Iron', () => {
     const sortedElements = sortByMethod(elements, 'yearDiscovered', false);
-    expect(sortedElements[0].name).toEqual('Bismuth');
+    expect(sortedElements[10].name).toEqual('Iron');
   });
 
-  test('T45645', () => {
+  test('Praseodymium', () => {
     const sortedElements = sortByMethod(elements, 'meltingPoint', true);
-    expect(sortedElements[0].name).toEqual('Carbon');
+    expect(sortedElements[50].name).toEqual('Praseodymium');
   });
 });
