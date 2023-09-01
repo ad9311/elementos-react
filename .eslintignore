@@ -1,0 +1,9 @@
+node_modules
+public
+
+postcss.config.js
+tailwind.config.js
+vite.config.ts
+vite-env.d.ts
+*.json
+

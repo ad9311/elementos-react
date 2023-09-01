@@ -1,3 +1,5 @@
+import './assets/css/App.css';
+
 function App() {
   return null;
 }
