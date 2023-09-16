@@ -1,3 +1,3 @@
-import Elements from './Elements';
+import ElementsPage from './ElementsPage';
 
-export default Elements;
+export default ElementsPage;
