@@ -22,8 +22,16 @@ function ElementsMain() {
     return <span>{(error as Error).message}</span>;
   }
 
-  // return <ElementsList elements={data} />;
-  return <ElementsTable elements={data} />;
+  return (
+    <>
+      <div className="block md:hidden">
+        <ElementsList elements={data} />
+      </div>
+      <div className="hidden md:block">
+        <ElementsTable elements={data} />
+      </div>
+    </>
+  );
 }
 
 export default ElementsMain;
