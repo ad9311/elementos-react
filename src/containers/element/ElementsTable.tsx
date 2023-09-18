@@ -1,3 +1,4 @@
+import { ElementTableItem } from '.';
 import Element from '../../types/element';
 
 interface ElementsTableProps {
@@ -7,6 +8,7 @@ interface ElementsTableProps {
 function ElementsTable({ elements }: ElementsTableProps) {
   const mappedElements = elements.map((element) => (
     <li
+      key={element.atomicNumber}
       className={`col-span-1 ${
         element.group === null
           ? `row-start-${element.period + 2} col-start-${
@@ -15,9 +17,8 @@ function ElementsTable({ elements }: ElementsTableProps) {
                 : element.atomicNumber - 85
             }`
           : `col-start-${element.group}`
-      }`}
-      key={element.atomicNumber}>
-      {element.symbol}
+      }`}>
+      <ElementTableItem element={element} />
     </li>
   ));
 
