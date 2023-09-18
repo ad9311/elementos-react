@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useElements } from '../../hooks/element';
-import { ElementsList } from '.';
+import { ElementsList, ElementsTable } from '.';
 import axios from 'axios';
 
 function ElementsMain() {
@@ -22,7 +22,8 @@ function ElementsMain() {
     return <span>{(error as Error).message}</span>;
   }
 
-  return <ElementsList elements={data} />;
+  // return <ElementsList elements={data} />;
+  return <ElementsTable elements={data} />;
 }
 
 export default ElementsMain;
