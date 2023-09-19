@@ -12,6 +12,7 @@ interface Element {
     | 'Post Transition Metal'
     | 'Metalloid'
     | 'Nonmetal'
+    | 'Halogen'
     | 'Noble Gas';
   seriesColor: string;
   description: string;

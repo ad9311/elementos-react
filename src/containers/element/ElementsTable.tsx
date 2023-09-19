@@ -13,7 +13,7 @@ function ElementsTable({ elements }: ElementsTableProps) {
         element.group === null
           ? `row-start-${element.period + 2} col-start-${
               element.series === 'Lanthanide'
-                ? element.atomicNumber - 53
+                ? `${element.atomicNumber - 53} mt-2`
                 : element.atomicNumber - 85
             }`
           : `col-start-${element.group}`
@@ -22,7 +22,7 @@ function ElementsTable({ elements }: ElementsTableProps) {
     </li>
   ));
 
-  return <ul className="grid grid-cols-18">{mappedElements}</ul>;
+  return <ul className="grid grid-cols-18 gap-0.5 xl:gap-1">{mappedElements}</ul>;
 }
 
 export default ElementsTable;

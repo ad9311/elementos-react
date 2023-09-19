@@ -1,4 +1,4 @@
-import { ElementMain } from "../../containers/element";
+import { ElementMain } from '../../containers/element';
 
 function ElementPage() {
   return <ElementMain />;

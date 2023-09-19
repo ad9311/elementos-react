@@ -1,26 +1,38 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       gridTemplateColumns: {
-        '18': 'repeat(18, minmax(0, 1fr))',
+        18: 'repeat(18, minmax(0, 1fr))',
       },
       gridColumnStart: {
-        '13': '13',
-        '14': '14',
-        '15': '15',
-        '16': '16',
-        '17': '17',
-        '18': '18',
+        13: '13',
+        14: '14',
+        15: '15',
+        16: '16',
+        17: '17',
+        18: '18',
       },
       gridRowStart: {
-        '8': '8',
-        '9': '9',
-      }
+        8: '8',
+        9: '9',
+      },
+      fontSize: {
+        '2xs': '0.65rem',
+      },
+      colors: {
+        'alkali-metal': '#3d0000',
+        'alkaline-earth-metal': '#482b00',
+        lanthanide: '#005252',
+        actinide: '#15523e',
+        'transition-metal': '#002346',
+        'post-transition-metal': '#003900',
+        metalloid: '#212c00',
+        nonmetal: '#434300',
+        halogen: '#747400',
+        'noble-gas': '#270b3d',
+      },
     },
   },
   safelist: [
@@ -47,5 +59,4 @@ export default {
     'row-start-9',
   ],
   plugins: [],
-}
-
+};
